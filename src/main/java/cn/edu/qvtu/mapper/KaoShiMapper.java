@@ -18,4 +18,8 @@ public interface KaoShiMapper {
     List<Teacher> getTeacherByGh(String gh);
 
     int addTeacher(Teacher teacher);
+
+    int updateTeacher(Teacher teacher);
+
+    int deleteTeacher(String gh);
 }
