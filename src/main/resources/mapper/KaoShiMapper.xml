@@ -16,4 +16,14 @@
     <select id="getTeacherByGh" resultType="cn.edu.qvtu.pojo.Teacher">
         select * from teacher where gh=#{gh}
     </select>
+
+    <update id="updateTeacher">
+        update teacher
+        set xm=#{xm}, sj=#{sj}
+        where gh=#{gh}
+    </update>
+
+    <delete id="deleteTeacher">
+        delete from teacher where gh=#{gh}
+    </delete>
 </mapper>

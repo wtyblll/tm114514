@@ -46,4 +46,20 @@ public class KaoShiApi {
         //编写业务逻辑
         return kaoShiService.addTeacher(data);
     }
+
+    //根据工号修改教师API
+    @PostMapping("/api/teacher/update")
+    @ResponseBody
+    public ApiData update(@RequestBody Teacher data){
+        //编写业务逻辑
+        return kaoShiService.updateTeacher(data);
+    }
+
+    //根据工号删除教师API
+    @GetMapping("/api/teacher/delete/{gh}")
+    @ResponseBody
+    public ApiData delete(@PathVariable String gh){
+        //编写业务逻辑
+        return kaoShiService.deleteTeacherById(gh);
+    }
 }

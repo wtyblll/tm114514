@@ -76,4 +76,36 @@ public class KaoShiServiceImpl implements KaoShiService {
         }
         return ApiData.fail("添加失败");
     }
+
+    @Override
+    public ApiData updateTeacher(Teacher teacher) {
+        if (teacher == null) {
+            return ApiData.fail("数据为空");
+        }
+        if (StringUtils.isEmpty(teacher.getGh())) {
+            return ApiData.fail("工号必填");
+        }
+        if (StringUtils.isEmpty(teacher.getXm())) {
+            return ApiData.fail("姓名必填");
+        }
+        //更新教师信息(这里做数据库操作）
+        int i = kaoShiMapper.updateTeacher(teacher);
+        if (i > 0) {
+            return ApiData.success(i, "修改成功");
+        }
+        return ApiData.fail("修改失败");
+    }
+
+    @Override
+    public ApiData deleteTeacherById(String id) {
+        if (StringUtils.isEmpty(id)) {
+            return ApiData.fail("工号必填");
+        }
+        //删除教师信息(这里做数据库操作）
+        int i = kaoShiMapper.deleteTeacher(id);
+        if (i > 0) {
+            return ApiData.success(i, "删除成功");
+        }
+        return ApiData.fail("删除失败");
+    }
 }

@@ -16,4 +16,8 @@ public interface KaoShiService {
     ApiData getTeacherById(String id);
 
     ApiData addTeacher(Teacher teacher);
+
+    ApiData updateTeacher(Teacher teacher);
+
+    ApiData deleteTeacherById(String id);
 }
